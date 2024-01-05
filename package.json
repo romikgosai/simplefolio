@@ -21,7 +21,7 @@
   "bugs": {
     "url": "https://github.com/romikgosai/simplefolio/issues"
   },
-  "homepage": "https://github.com/romikgosai/simplefolio#readme",
+  "homepage": "https://github.com/romikgosai/simplefolio/src/index.html",
   "devDependencies": {
     "@parcel/transformer-sass": "^2.8.2",
     "parcel": "^2.8.2",
