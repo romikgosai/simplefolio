@@ -1,0 +1,32 @@
+name: build-for-github-pages
+on:
+  push:
+    branches:
+      - main # Make sure you have the correct branch name here
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20 # Make sure you have the correct Node version here
+      - run: npm ci
+      - run: npm run build-github
+      - name: Commit files
+        id: auto-commit-action
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Build latest changes # You can change this message
+      - name: Push changes
+        if: steps.auto-commit-action.outputs.changes_detected == 'true'
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: No changes detected
+        if: steps.auto-commit-action.outputs.changes_detected == 'false'
+        run: echo "No changes!" # You can change this message
