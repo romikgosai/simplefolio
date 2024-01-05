@@ -1,6 +1,10 @@
 {
   "name": "simplefolio",
   "version": "1.0.1",
+<<<<<<< HEAD
+=======
+  "private": "false",
+>>>>>>> 3e9506bc994add667ba09fa2b8e428e0603e98b3
   "description": "A clean, beautiful and responsive portfolio template for Developers!",
   "source": "src/index.html",
   "publishConfig": {
